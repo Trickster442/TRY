@@ -7,7 +7,9 @@ router.get("/", (req,res)=>{
 })
 
 
-
+router.get("/adduser", (req,res)=>{
+    res.status(200).send("this is add user page");
+})
 
 
 

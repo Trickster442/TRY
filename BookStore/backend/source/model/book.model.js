@@ -1,5 +1,6 @@
-import connection from "./config";
+import connection from "./config.js";
 import { DataTypes } from "sequelize";
+
 const bookModel = connection.define("books", {
     id : {
         type : DataTypes.INTEGER,
@@ -12,10 +13,6 @@ const bookModel = connection.define("books", {
         type : DataTypes.CHAR,
         allowNull: false
     },
-    photos : {
-        type: DataTypes.CHAR,
-        allowNull: false
-    },
     genre : {
         type: DataTypes.CHAR,
         allowNull: false
@@ -26,6 +23,10 @@ const bookModel = connection.define("books", {
     }, 
     description: {
         type: DataTypes.TEXT,
+        allowNull: false
+    },
+    image : {
+        type : DataTypes.STRING,
         allowNull: false
     }
 },
