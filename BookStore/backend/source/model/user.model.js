@@ -1,7 +1,7 @@
-import connection from "./config";
+import connection from "./config.js";
 import { DataTypes } from "sequelize";
 import bcrypt from "bcrypt";
-const userModel = connection.define("books", {
+const userModel = connection.define("users", {
     id : {
         type : DataTypes.INTEGER,
         primaryKey: true,
