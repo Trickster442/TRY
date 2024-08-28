@@ -30,4 +30,10 @@ router.post("/addbook", upload.single("image"), (req, res) => {
   bookController.add(req, res, imageName);
 });
 
+//api to delete book
+router.delete('/delete/:id', bookController.deleteBook);
+
+router.get('/allbook', bookController.allBook);
+
+router.get('/searchbooks', bookController.searchBooks)
 export default router;
