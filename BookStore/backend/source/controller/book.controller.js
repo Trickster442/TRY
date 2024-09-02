@@ -44,20 +44,47 @@ export default class Book {
                 raw: true
             });
     
-            if (response.length > 0) {
-                // If there are books, return them with a 200 status code
-                res.status(200).json(response);
-            } else {
-                // If no books are found, return an empty array with a 200 status code
-                res.status(200).json([]);
+            // Process image URLs before sending the response
+            for (let r of response) {
+                if (r.image) { // Check if image exists
+                    r.image = 'http://localhost:8888/assets/uploads/' + r.image;
+                }
+                console.log(r.image); // Debugging line, can be removed in production
             }
+    
+            // Send the response with a 200 status code
+            res.status(200).json(response);
+    
         } catch (error) {
             // Log the error and return a 500 status code for server errors
             console.error('Error fetching books:', error);
             res.status(500).json({ message: 'Internal Server Error' });
         }
     }
-
+    async allBook(req, res) {
+        try {
+            const response = await bookModel.findAll({
+                raw: true
+            });
+    
+            // Process image URLs before sending the response
+            for (let r of response) {
+                if (r.image) { // Check if image exists
+                    r.image = 'http://localhost:8888/assests/uploads/' + r.image;
+                }
+                console.log(r.image); // Debugging line, can be removed in production
+            }
+    
+            // Send the response with a 200 status code
+            res.status(200).json(response);
+    
+        } catch (error) {
+            // Log the error and return a 500 status code for server errors
+            console.error('Error fetching books:', error);
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+        
     
 
 async searchBooks(req, res) {

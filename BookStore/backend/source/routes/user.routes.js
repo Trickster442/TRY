@@ -30,6 +30,8 @@ router.post("/adduser", upload.single('photos'), (req,res)=>{
     userController.addUser(req,res, imageName);
 })
 
+router.post('/authenticate', userController.authenticate);
+
 
 
 export default router;
