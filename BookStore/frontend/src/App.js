@@ -3,6 +3,7 @@ import Home from "../src/pages/home"
 import AboutUS from "../src/pages/aboutUS";
 import './index.css'
 import AddBook from "./admin/addBook";
+import BookDescription from "./pages/bookDescription";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,8 @@ function App() {
       <Route path="/login"/>
       <Route path="/dashboard"></Route>
       <Route path="/dashboard/addbook" element={<AddBook/>}></Route>
+      <Route path="/bookDescription" element={<BookDescription/>}/>
+
     </Routes>
     </BrowserRouter>
   );
