@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure html and body cover full viewport height */
+    margin: 0;    /* Remove default margin */
+    padding: 0;   /* Remove default padding */
+}
+
+.main-container {
+    min-height: 100vh; /* Ensure the container covers the full viewport height */
+    background: linear-gradient(80deg, red 0 50%, blue 50% 100%);
+    display: flex; /* Center content vertically and horizontally if needed */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+.container {
+    width: 50%;
+    margin: 9% auto; /* Center the container horizontally and give vertical spacing */
+    background-color: aliceblue;
+    height: 410px;
+    padding: 20px; /* Add padding if needed */
+    border-radius: 10px; /* Optional: round corners */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 5px;
+    height: 30px;
+    border-radius: 7px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: larger;
+}
+
+button {
+    height: 30px;
+    margin: 10px auto; /* Center button horizontally */
+    border-radius: 5px;
+    background-color: blue;
+    width: 30%;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    cursor: pointer;
+    display: block; /* Ensure button is a block element for centering */
+}
+
+.second-container {
+    width: 100%; /* Full width of the container */
+    max-width: 500px; /* Optional: limit maximum width */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+.line {
+    margin-top: 7px;
+    background-color: blue;
+    height: 1px;
+}
+
+.newAccount {
+    margin-top: 7px;
+    font-weight: 100;
+    font-size: small;
+    font-style: italic;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 480px) {
+    h2{
+        font-size: large;
+    }
+    .container{
+        height: 350px;
+    }
+    label{
+        font-size: medium;
+    }
+
+    button{
+        font-size: smaller;
+        text-wrap: wrap;
+    }
+    .newAccount{
+        font-size: smaller;
+    }
+
+}
+
+@media only screen and (max-width: 190px) {
+    label{
+        font-size: small;
+    }
+}

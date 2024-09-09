@@ -1,9 +1,12 @@
 import express from "express";
 import BookController from "../controller/book.controller.js";
+import BookMarkController from "../controller/bookmark.controller.js"
 import multer from "multer";
+import validateToken from "../middleware/tokenvalidation.js";
 
 const router = express.Router();
 const bookController = new BookController();
+const bookMarkController = new BookMarkController();
 
 //multer for image uploading
 const storage = multer.diskStorage({
@@ -36,4 +39,10 @@ router.delete('/delete/:id', bookController.deleteBook);
 router.get('/allbook', bookController.allBook);
 
 router.get('/searchbooks', bookController.searchBooks)
+
+router.post('/add_bookmark', validateToken, bookMarkController.addBookmark)
+
+router.delete('/delete_bookmark/:id', bookMarkController.deleteBookmark)
+
+
 export default router;

@@ -4,6 +4,8 @@ import AboutUS from "../src/pages/aboutUS";
 import './index.css'
 import AddBook from "./admin/addBook";
 import BookDescription from "./pages/bookDescription";
+import Login from "./pages/login";
+import Bookmark from "./pages/bookmark";
 function App() {
   return (
     <BrowserRouter>
@@ -11,8 +13,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/about_us" element={<AboutUS/>}/>
       <Route path="/contact"/>
-      <Route path="/ordered"/>
-      <Route path="/login"/>
+      <Route path="/bookmark" element={<Bookmark/>}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/dashboard"></Route>
       <Route path="/dashboard/addbook" element={<AddBook/>}></Route>
       <Route path="/bookDescription" element={<BookDescription/>}/>

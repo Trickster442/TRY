@@ -32,7 +32,7 @@ const Login = () => {
         <form method='post' onSubmit={handleSubmit}>
           <h2>User Login</h2>
 
-          {error && <p className='error'>{error}</p>} {/* Display error message if exists */}
+          {error && <p className='error'>{error}</p>} 
 
           <label htmlFor='email'>Email:</label>
           <input
@@ -41,7 +41,7 @@ const Login = () => {
             value={email}
             id='email'
             onChange={(e) => setEmail(e.target.value)}
-            required // Add required attribute for basic validation
+            required
           />
 
           <label htmlFor='password'>Password:</label>
@@ -51,16 +51,16 @@ const Login = () => {
             value={password}
             id='password'
             onChange={(e) => setPassword(e.target.value)}
-            required // Add required attribute for basic validation
+            required 
           />
 
           <button type='submit'>Login</button>
         </form>
 
-        <a href='/forgot-password' className='forgotPassword'>Forgot password?</a> {/* Updated link */}
+        <a href='/forgot-password' className='forgotPassword'>Forgot password?</a> 
         <div className='line'></div>
         <div className='newAccount'>
-          <p>Don't have an account? <a href='/signup'>Create new</a></p> {/* Updated link */}
+          <p>Don't have an account? <a href='/signup'>Create new</a></p> 
         </div>
       </div>
     </div>

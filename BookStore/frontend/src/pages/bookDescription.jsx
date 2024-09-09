@@ -6,10 +6,8 @@ const BookDescription = () => {
   const book = location.state.book;
 
   return (
-    <div style={{
-        width:'60%',
-        justifyContent:'center'
-    }}>
+    
+    <div>
       <h1>{book.name}</h1>
       <p>{book.author}</p>
       <img src={book.image} alt={book.id}  style={{width:'200px', height:'200px'}}/>
