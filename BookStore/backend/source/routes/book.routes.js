@@ -40,9 +40,14 @@ router.get('/allbook', bookController.allBook);
 
 router.get('/searchbooks', bookController.searchBooks)
 
+
+//for bookmark routes
+
 router.post('/add_bookmark', validateToken, bookMarkController.addBookmark)
 
 router.delete('/delete_bookmark/:id', bookMarkController.deleteBookmark)
 
+
+router.get('/all_bookmarks', bookMarkController.getBookmarks)
 
 export default router;

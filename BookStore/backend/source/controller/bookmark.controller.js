@@ -1,5 +1,5 @@
 import bookMarkModel from "../model/bookMark.model.js";
-
+import bookModel from "../model/book.model.js";
 export default class BookMark{
     async addBookmark(req,res){
         const response = await bookMarkModel.create(req.body) ;
@@ -20,6 +20,20 @@ export default class BookMark{
             } else {
                 res.json({success: false, message : 'Bookmarked book deletion failed'})
             }
+        }
+    }
+
+    async getBookmarks(req,res){
+        const response = await bookMarkModel.findAll({include : {
+            model: bookModel,
+            attributes : ['name', 'genre', 'author',  'image']
+            
+        }});
+        if (response){
+            res.json({success:true, message:"Successful", data : response})
+            
+        } else {
+            res.json({success:false, message: 'Failed'});
         }
     }
 }

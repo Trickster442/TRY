@@ -1,11 +1,18 @@
-import React from 'react'
+// import React, { useEffect, useState } from 'react'
+// // import api from "../api/configuration"
+// const bookmark = () => {
+//   const [bookmark, setBookmark] = useState([]);
 
-const bookmark = () => {
-  return (
-    <div>
+//   useEffect(()=>{
+//     async function fetch() {
+//       // const bookmarks = api.get("")
+//     }
+//   })
+//   return (
+//     <div>
       
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default bookmark
+// export default bookmark
