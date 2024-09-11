@@ -26,7 +26,7 @@ router.get("/", (req,res)=>{
 
 router.post("/adduser", upload.single('photos'), (req,res)=>{
     
-    const imageName = req.file.filecname;
+    const imageName = req.file.filename;
     userController.addUser(req,res, imageName);
 })
 

@@ -19,6 +19,7 @@ const Home = () => {
       
       if (!token) {
         setError('No token found.');
+        navigate('/login');
         return;
       }
 
@@ -39,7 +40,7 @@ const Home = () => {
 
         // Use navigate for redirection
         if (response.status === 200) { // Assuming a successful response has status 200
-          navigate("/bookmarks"); // Navigate to bookmarks page
+          navigate("/bookmark"); // Navigate to bookmarks page
         } else {
           navigate('/login'); // Navigate to login page if not successful
         }
@@ -54,6 +55,7 @@ const Home = () => {
     async function fetchApi() {
       try {
         const response = await api.get('/books/allbook');
+        console.log(response.data)
         if (response && response.data) { // Ensure there's data to set
           setPageContent(response.data); // Set the response data to state
         }

@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
+
+  const navigate = useNavigate();
   return (
     <header style={headerStyle}>
       <div style={containerStyle}>
         <div>
-          <Link to='/home' style={logoStyle}>
+          <Link to='/' style={logoStyle}>
           LOGO
           </Link>
           
@@ -14,13 +17,13 @@ const Header = () => {
           <Link to='/about_us' style={linkStyle}>
             About Us
           </Link>
-          <Link to='contact' style={linkStyle}>
-          Contact Us
+          <Link to='/' style={linkStyle} onClick={()=>{ localStorage.removeItem('token'); navigate('/')}}>
+          Logout
           </Link>
-          <Link style={linkStyle}>
+          <Link style={linkStyle} to='bookmark'>
           Booked
           </Link>
-          <Link style={linkStyle}>
+          <Link style={linkStyle} to='/login'>
           Login
           </Link>
         </nav>
