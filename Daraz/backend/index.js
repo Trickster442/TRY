@@ -1,13 +1,18 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import 'dotenv/config'
 import connection from './model/config.js'
 import userRoute from './route/user.route.js'
 import adminRoute from './route/admin.route.js'
+import { json } from "sequelize";
 
 
 
 //middleware and configuration 
+
 const server = express();
+server.use(json());
+server.use(urlencoded({extended:true}));
+
 server.use('/daraz', userRoute);
 server.use('/admin', adminRoute);
 
