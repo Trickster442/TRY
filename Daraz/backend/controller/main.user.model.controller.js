@@ -1,20 +1,25 @@
-import mainUserModel from '../model/main.user.model.js'
+import mainUserModel from '../model/main.user.model.js';
 
-class User {
+export default class User {
 
-    async addUser(req,res){
-        const data = req.body;
-        if (data) {
-            const isAdded = await mainUserModel.create(data)
-            if (isAdded){
-                res.json({success:true, message : "User added successfully !!"})
-            } else {
-                res.json({success:false, message: "Failed to add user"})
+    async addusers(req, res) {
+        try {
+            const data = req.body;
+            
+            if (!data) {
+                return res.status(400).json({ success: false, message: "No data provided" });
             }
-        } else {
-            res.send("Failed to get data")
+            
+            const isAdded = await mainUserModel.create(data);
+            
+            if (isAdded) {
+                return res.status(201).json({ success: true, message: "User added successfully!" });
+            } else {
+                return res.status(500).json({ success: false, message: "Failed to add user" });
+            }
+        } catch (error) {
+            console.error("Error adding user:", error);
+            return res.status(500).json({ success: false, message: "An error occurred while adding the user" });
         }
     }
 }
-
-export default User;

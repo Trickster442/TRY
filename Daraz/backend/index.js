@@ -10,8 +10,8 @@ import { json } from "sequelize";
 //middleware and configuration 
 
 const server = express();
-server.use(json());
-server.use(urlencoded({extended:true}));
+server.use(express.json());
+server.use(express.urlencoded({extended:true}));
 
 server.use('/daraz', userRoute);
 server.use('/admin', adminRoute);
@@ -27,7 +27,7 @@ server.listen(process.env.PORT, ()=>{
     try{
         connection.authenticate()
         console.log("Successfully connected to database")
-        connection.sync();
+        connection.sync({force:true});
     }catch{
         console.log("Error during connection to database")
     }

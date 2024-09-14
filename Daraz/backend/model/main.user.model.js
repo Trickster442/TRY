@@ -1,5 +1,6 @@
 import database from './config.js';
 import { DataTypes } from 'sequelize';
+import bcrpyt from 'bcrypt';
 const user = database.define('users', {
     id : {
         type: DataTypes.INTEGER,
@@ -18,12 +19,16 @@ const user = database.define('users', {
     },
     password: {
         type: DataTypes.CHAR,
-        allowNull: false
+        allowNull: false,
+        set(value){
+            const hashPass = bcrpyt.hashSync(value, 10);
+            this.setDataValue('password', hashPass);
+        }
     },
     idAdmin : {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
-
 
 }, {
     timestamps: false

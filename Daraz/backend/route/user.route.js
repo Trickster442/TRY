@@ -1,15 +1,17 @@
 import express from 'express'
-import mainUserController from '../controller/main.user.model.controller.js'
+import UserController from '../controller/main.user.model.controller.js'
+
+
 const router = express.Router();
+
+const userController = new UserController();
 
 router.get('/', (req,res)=>{
     res.send("This is user home page");
 })
 
 //user add delete update
-router.post('/addUser',  (req,res)=>{
-    mainUserController.addUser;
-});
+router.post('/addUser', userController.addusers);
 
 router.get('/deleteUser', (req,res)=>{
     res.send("This is delete page");
